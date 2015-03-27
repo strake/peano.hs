@@ -54,7 +54,6 @@ instance Integral Peano where
     toInteger (Succ n) = toInteger n + 1
 
     Zero `quotRem` Zero   = error "0/0"
-    Zero `quotRem` Succ _ = (Zero, Zero)
     m    `quotRem` n      = case compare m n
                             of LT -> (Zero, m)
                                _  -> let (q, r) = quotRem (m - n) n in (Succ q, r)
