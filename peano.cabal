@@ -1,5 +1,5 @@
 name:                peano
-version:             0.1.0.1
+version:             0.2.0.0
 synopsis:            Peano numbers
 license:             BSD3
 license-file:        LICENSE
