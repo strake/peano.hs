@@ -4,8 +4,13 @@ import Data.Data
 import Data.Function (on)
 import Data.Ix (Ix (..))
 import Data.Typeable
+import Numeric.Natural
+import Text.Read (Read (..))
 
-data Peano = Zero | Succ Peano deriving (Eq, Ord, Read, Show, Typeable, Data)
+data Peano = Zero | Succ Peano deriving (Eq, Ord, Typeable, Data)
+
+instance Show Peano where show = show . (fromIntegral :: Peano -> Natural)
+instance Read Peano where readPrec = (fromIntegral :: Natural -> Peano) <$> readPrec
 
 instance Enum Peano where
     succ = Succ
