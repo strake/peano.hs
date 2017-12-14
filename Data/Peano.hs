@@ -1,9 +1,7 @@
 module Data.Peano (Peano (..), infinity) where
 
 import Data.Data
-import Data.Function (on)
 import Data.Ix (Ix (..))
-import Data.Typeable
 import Numeric.Natural
 import Text.Read (Read (..))
 
@@ -28,7 +26,7 @@ instance Bounded Peano where
 
 instance Ix Peano where
     range = uncurry enumFromTo
-    index (l, u) n = fromEnum (n - l)
+    index (l, _) n = fromEnum (n - l)
     inRange (l, u) n = l <= n && u >= n
     rangeSize (l, u) = fromEnum (Succ u - l)
 
@@ -38,8 +36,9 @@ instance Num Peano where
 
     m      - Zero   = m
     Succ m - Succ n = m - n
+    _      - _      = error "negative"
 
-    Zero   * n = Zero
+    Zero   * _ = Zero
     Succ m * n = n + m * n
 
     abs = id
@@ -47,9 +46,9 @@ instance Num Peano where
     signum Zero = Zero
     signum _    = Succ Zero
 
-    fromInteger n | n <  0 = error "fromInteger n | n < 0"
-                  | n == 0 = Zero
-                  | n >  0 = Succ (fromInteger (n - 1))
+    fromInteger n = case compare n 0 of LT -> error "fromInteger n | n < 0"
+                                        EQ -> Zero
+                                        GT -> Succ (fromInteger (n - 1))
 
 instance Real Peano where
     toRational = toRational . toInteger
