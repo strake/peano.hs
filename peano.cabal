@@ -1,7 +1,7 @@
 name:                peano
 version:             0.1.0.1
 synopsis:            Peano numbers
-license:             OtherLicense
+license:             BSD3
 license-file:        LICENSE
 author:              M Farkas-Dyck
 maintainer:          strake888@gmail.com
