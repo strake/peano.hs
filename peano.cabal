@@ -8,10 +8,10 @@ maintainer:          strake888@gmail.com
 category:            Data, Math
 build-type:          Simple
 cabal-version:       >=1.9.2
-tested-with:         GHC ==7.8.*,
-                     GHC ==7.10.*,
-                     GHC ==7.12.*,
-                     GHC ==8.0.*
+tested-with:         GHC ==7.10.3
+                     GHC ==8.0.2
+                     GHC ==8.2.2
+                     GHC ==8.4.2
 
 library
   exposed-modules:     Data.Peano
