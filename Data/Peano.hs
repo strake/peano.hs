@@ -1,3 +1,4 @@
+-- | See 'Peano'
 module Data.Peano (Peano (..), infinity) where
 
 import Data.Data
@@ -5,6 +6,7 @@ import Data.Function (on)
 import Data.Ix (Ix (..))
 import Data.Typeable
 
+-- | The natural numbers
 data Peano = Zero | Succ Peano deriving (Eq, Ord, Read, Show, Typeable, Data)
 
 instance Enum Peano where
