@@ -1,3 +1,4 @@
+-- | See 'Peano'
 module Data.Peano (Peano (..), infinity) where
 
 import Data.Data
@@ -5,6 +6,7 @@ import Data.Ix (Ix (..))
 import Numeric.Natural
 import Text.Read (Read (..))
 
+-- | The natural numbers
 data Peano = Zero | Succ Peano deriving (Eq, Ord, Typeable, Data)
 
 instance Show Peano where show = show . (fromIntegral :: Peano -> Natural)
