@@ -1,20 +1,33 @@
+cabal-version:       >=1.10
 name:                peano
 version:             0.2.0.0
 synopsis:            Peano numbers
+description:         Lazy unary natural numbers.
 license:             BSD3
 license-file:        LICENSE
 author:              M Farkas-Dyck
 maintainer:          strake888@gmail.com
 category:            Data, Math
 build-type:          Simple
-cabal-version:       >=1.9.2
+
 tested-with:         GHC ==7.10.3
                      GHC ==8.0.2
                      GHC ==8.2.2
-                     GHC ==8.4.2
+                     GHC ==8.4.4
+                     GHC ==8.6.5
+                     GHC ==8.8.4
+                     GHC ==8.10.7
+                     GHC ==9.0.2
+                     GHC ==9.2.5
+                     GHC ==9.4.3
 
 library
   exposed-modules:     Data.Peano
-  extensions:          DeriveDataTypeable
+  default-language:    Haskell98
+  default-extensions:  DeriveDataTypeable
   build-depends:       base >=4.7 && <5
   ghc-options:         -Wall
+
+source-repository head
+  type:     git
+  location: https://github.com/strake/peano.hs
